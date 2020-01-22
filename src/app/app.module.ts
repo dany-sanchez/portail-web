@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { UserComponent } from './pages/user/user.component';
+import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserComponent } from './pages/user/user.component';
     LoginComponent,
     NavComponent,
     UserComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
