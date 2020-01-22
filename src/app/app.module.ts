@@ -15,10 +15,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { UserComponent } from './pages/user/user.component';
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ToolbarComponent } from './pages/toolbar/toolbar.component';
     NavComponent,
     UserComponent,
     ToolbarComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { ToolbarComponent } from './pages/toolbar/toolbar.component';
     MatListModule,
     MatInputModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
