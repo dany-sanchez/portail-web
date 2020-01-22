@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.authService.login().subscribe(() => {
       this.setMessage();
       if (this.authService.isLoggedIn) {
-        let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/menu';
+        let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/menu/dashboard';
         this.router.navigateByUrl(redirect);
       }
     });
