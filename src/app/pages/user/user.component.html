@@ -1,11 +1,18 @@
 <form [formGroup]="profileForm" class="user-form">
     <mat-form-field class="input-full-width">
-        <input matInput placeholder="Lastname" [value]="lastname" readonly="true">
+        <input matInput placeholder="Lastname" [value]="user.lastname" readonly="true">
     </mat-form-field>
     <mat-form-field class="input-full-width">
-        <input matInput placeholder="Firstname" [value]="firstname" readonly="true">
+        <input matInput placeholder="Firstname" [value]="user.firstname" readonly="true">
     </mat-form-field>
     <mat-form-field class="input-full-width">
-        <input matInput placeholder="Email" [value]="email" readonly="true">
+        <input matInput placeholder="Email" [value]="user.email" readonly="true">
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+        <input matInput placeholder="Rôle" [value]="user.role" readonly="true">
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+        <img src="{{user.imgurl}}" class="user-image">
+        <input matInput placeholder="Image" [value]="user.imgurl" readonly="true">
     </mat-form-field>
 </form>

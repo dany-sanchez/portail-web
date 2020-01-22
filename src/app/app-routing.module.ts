@@ -8,8 +8,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 import { AuthGuard } from './auth/auth.guard';
 
-
-
 const routes: Routes = [
   {
     path: 'menu',
