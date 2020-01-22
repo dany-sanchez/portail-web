@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +9,35 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  message: string;
   profileForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public authService: AuthService, public router: Router) {
+    this.setMessage();
+  }
 
-  onSubmit() {
-    console.log(this.profileForm.value)
+  setMessage() {
+    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+  }
+
+  login() {
+    this.message = 'Trying to log in';
+
+    this.authService.login().subscribe(() => {
+      this.setMessage();
+      if (this.authService.isLoggedIn) {
+        let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/menu';
+        this.router.navigateByUrl(redirect);
+      }
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+    this.setMessage();
   }
 
   ngOnInit() {
