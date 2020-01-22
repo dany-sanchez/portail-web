@@ -23,6 +23,7 @@ import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     UserComponent,
     ToolbarComponent,
     PageNotFoundComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
