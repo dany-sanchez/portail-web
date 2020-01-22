@@ -21,6 +21,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { UserComponent } from './pages/user/user.component';
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     MatInputModule,
     MatCardModule,
     MatGridListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
