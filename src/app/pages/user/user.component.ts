@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { User } from 'src/app/interfaces/User';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-user',
@@ -8,23 +7,9 @@ import { User } from 'src/app/interfaces/User';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  user: User = {
-    firstname: "Hugo",
-    lastname: "Wehbe",
-    email: "h@wb.fr",
-    role: "admin",
-    imgurl: "https://avatars1.githubusercontent.com/u/19188789?s=400&v=4"
-  };
+  @Input() user: User;
 
-  profileForm = this.fb.group({
-    firstname: ['', Validators.required],
-    lastname: ['', Validators.required],
-    email: ['', Validators.required, Validators.email],
-    role: ['', Validators.required],
-    imgurl: [''],
-  });
-
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
   }

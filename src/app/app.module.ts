@@ -95,6 +95,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UsersComponent } from './pages/users/users.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     ToolbarComponent,
     PageNotFoundComponent,
     DashboardComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

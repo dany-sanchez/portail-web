@@ -1,18 +1,24 @@
-<form [formGroup]="profileForm" class="user-form">
-    <mat-form-field class="input-full-width">
-        <input matInput placeholder="Lastname" [value]="user.lastname" readonly="true">
-    </mat-form-field>
-    <mat-form-field class="input-full-width">
-        <input matInput placeholder="Firstname" [value]="user.firstname" readonly="true">
-    </mat-form-field>
-    <mat-form-field class="input-full-width">
-        <input matInput placeholder="Email" [value]="user.email" readonly="true">
-    </mat-form-field>
-    <mat-form-field class="input-full-width">
-        <input matInput placeholder="Rôle" [value]="user.role" readonly="true">
-    </mat-form-field>
-    <mat-form-field class="input-full-width">
-        <img src="{{user.imgurl}}" class="user-image">
-        <input matInput placeholder="Image" [value]="user.imgurl" readonly="true">
-    </mat-form-field>
-</form>
+<mat-card class="mat-whiteframe-2dp">
+    <mat-card-title-group>
+        <img mat-card-image src="{{ user.imgurl }}" />
+        <mat-card-title>
+            <a routerLink="/user/{{ user.id }}" routerLinkActive="active">
+                <span>{{ user.firstname }} {{ user.lastname }}</span>
+            </a>
+        </mat-card-title>
+        <mat-card-subtitle>{{ user.role }}</mat-card-subtitle>
+        <mat-card-subtitle class="contact-info">
+            <mat-icon>email</mat-icon>
+            <a href="mailto:{{ user.firstname }} {{ user.lastname }}&lt;{{ user.email }}&gt;"
+                title="Send an email to {{ user.firstname }} {{ user.lastname }}" class="truncate">{{ user.email }}</a>
+        </mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+        <div class="buttons-info">
+            <!-- <a mat-button title="Edit" href="#/edit/1"> <mat-icon>create</mat-icon> </a> -->
+            <a mat-button title="Delete">
+                <mat-icon>delete</mat-icon>
+            </a>
+        </div>
+    </mat-card-content>
+</mat-card>
