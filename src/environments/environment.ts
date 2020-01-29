@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyADVyA3yGYkNSaqm42wrEQTkbKUNZOQYX0",
+    authDomain: "portail-weeb.firebaseapp.com",
+    databaseURL: "https://portail-weeb.firebaseio.com",
+    projectId: "portail-weeb",
+    storageBucket: "portail-weeb.appspot.com",
+    messagingSenderId: "835767715570",
+    appId: "1:835767715570:web:4ca1ee4c3bbfdb769bb26b"
+  }
 };
 
 /*

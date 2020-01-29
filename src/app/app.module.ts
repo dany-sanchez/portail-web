@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { MatSliderModule } from '@angular/material/slider';
 import { LoginComponent } from './pages/login/login.component';
 import { NavComponent } from './pages/nav/nav.component';
@@ -24,6 +28,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -52,6 +59,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     MatProgressBarModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    AngularFireModule.initializeApp(environment.firebase, 'portail-weeb'),
+    AngularFirestoreModule, 
+    AngularFireAuthModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
