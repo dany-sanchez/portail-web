@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private fb: FormBuilder, public router: Router) { }
 
   signIn() {
-    this.authService.SignIn(this.profileForm.value.email, this.profileForm.value.password)
+    this.authService.SignIn(this.profileForm.value.email, this.profileForm.value.password);
   }
 
 

@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
 
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 
 @Injectable({
@@ -24,19 +24,19 @@ export class AuthService {
       } else {
         localStorage.setItem('user', null);
       }
-    })
+    });
   }
 
   async SignIn(email: string, password: string) {
-    await this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    await this.afAuth.auth.signInWithEmailAndPassword(email, password);
     if (this.isLoggedIn) {
-      let redirect = this.redirectUrl ? this.router.parseUrl(this.redirectUrl) : '/menu/dashboard';
+      const redirect = this.redirectUrl ? this.router.parseUrl(this.redirectUrl) : '/menu/dashboard';
       this.router.navigateByUrl(redirect);
     }
   }
 
   async register(email: string, password: string) {
-    await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
   async sendPasswordResetEmail(passwordResetEmail: string) {
