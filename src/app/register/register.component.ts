@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../app/auth/auth.service'
+import { AuthService } from '../../app/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -21,8 +21,8 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService, private fb: FormBuilder, public router: Router) { }
 
 
-  register(){
-    this.authService.register(this.profileForm.value.email, this.profileForm.value.password)
+  register() {
+    this.authService.register(this.profileForm.value.email, this.profileForm.value.password);
   }
 
 

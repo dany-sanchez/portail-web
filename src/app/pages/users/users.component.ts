@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  //users: User[];
-  public users: Observable<User[]>
+  // users: User[];
+  public users: Observable<User[]>;
 
   constructor(private userService: UserService) { }
 

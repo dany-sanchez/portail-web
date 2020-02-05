@@ -11,6 +11,6 @@ export class UserService {
   constructor(private afs: AngularFirestore) { }
 
   public getAllUsers(): Observable<User[]> {
-    return this.afs.collection<User>('users').valueChanges()
+    return this.afs.collection<User>('users').valueChanges();
   }
 }
