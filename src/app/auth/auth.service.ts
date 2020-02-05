@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
   user: User;
   redirectUrl: string;
 
-  constructor(public afAuth: AngularFireAuth, public router: Router) {
+  constructor(private afs: AngularFirestore, public afAuth: AngularFireAuth, public router: Router) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
@@ -35,9 +36,18 @@ export class AuthService {
     }
   }
 
-  async register(email: string, password: string) {
-    await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-    this.router.navigateByUrl('/login');
+  async register(email: string, password: string, firstname: string, lastname: string) {
+    await new Promise((resolve, reject) => {
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(userData => {
+        this.afs.collection('users').doc(userData.user.uid).set({
+          firstname: firstname,
+          lastname: lastname
+        })
+        this.router.navigateByUrl('/login');
+      },
+      err => reject(err))
+    });
   }
 
   async sendPasswordResetEmail(passwordResetEmail: string) {

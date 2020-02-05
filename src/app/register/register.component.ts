@@ -21,8 +21,8 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService, private fb: FormBuilder, public router: Router) { }
 
 
-  register() {
-    this.authService.register(this.profileForm.value.email, this.profileForm.value.password);
+  register(){
+    this.authService.register(this.profileForm.value.email, this.profileForm.value.password, this.profileForm.value.firstname, this.profileForm.value.lastname)
   }
 
 
