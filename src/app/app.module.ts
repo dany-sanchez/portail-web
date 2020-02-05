@@ -30,6 +30,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { environment } from '../environments/environment';
 import { UsersComponent } from './pages/users/users.component';
 import { RegisterComponent } from './register/register.component';
+import { ActualiteComponent } from './pages/actualite/actualite.component';
+import { ActualitesComponent } from './pages/actualites/actualites.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { RegisterComponent } from './register/register.component';
     DashboardComponent,
     UsersComponent,
     RegisterComponent,
+    ActualiteComponent,
+    ActualitesComponent,
   ],
   imports: [
     BrowserModule,

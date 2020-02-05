@@ -1,0 +1,15 @@
+<mat-card class="mat-whiteframe-2dp">
+    <mat-card-title-group>
+        <mat-card-title>
+            <a routerLink="/actualite/{{ actualite.id }}" routerLinkActive="active">
+                <span>{{ actualite.titre }}</span>
+            </a>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <div>{{actualite.date.toLocaleDateString()}} à {{actualite.date.toLocaleTimeString()}}</div>
+        </mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+        <div [innerHTML]="actualite.contenu"></div>
+    </mat-card-content>
+</mat-card>
