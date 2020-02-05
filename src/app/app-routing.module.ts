@@ -8,6 +8,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 import { AuthGuard } from './auth/auth.guard';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
   },
   { path: 'user/:id', component: UserComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -29,6 +29,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { environment } from '../environments/environment';
 import { UsersComponent } from './pages/users/users.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { UsersComponent } from './pages/users/users.component';
     PageNotFoundComponent,
     DashboardComponent,
     UsersComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
