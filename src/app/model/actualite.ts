@@ -1,5 +1,6 @@
 export interface Actualite {
+    id: string;
     titre: string;
     contenu: string;
-    date: Date;
+    date: { seconds: number, nanoseconds: number };
 }

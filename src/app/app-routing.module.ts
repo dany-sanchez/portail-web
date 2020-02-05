@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserComponent } from './pages/user/user.component';
 import { UsersComponent } from './pages/users/users.component';
+import { ActualiteComponent } from './pages/actualite/actualite.component';
 import { ActualitesComponent } from './pages/actualites/actualites.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
@@ -29,9 +30,10 @@ const routes: Routes = [
         path: 'news',
         component: ActualitesComponent
       },
+      { path: 'user/:id', component: UserComponent },
+      { path: 'news/:id', component: ActualiteComponent },
     ]
   },
-  { path: 'user/:id', component: UserComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },

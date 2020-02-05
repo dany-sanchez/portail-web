@@ -13,7 +13,9 @@ export class ActualitesComponent implements OnInit {
   constructor(private actualiteService: ActualiteService) { }
 
     getActualites(): void {
-      this.actualites = this.actualiteService.getActualites();
+      this.actualiteService.getActualites().subscribe(actualites => {
+        this.actualites = actualites;
+      });
     }
 
   ngOnInit() {
