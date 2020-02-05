@@ -1,6 +1,8 @@
 <mat-card class="mat-whiteframe-2dp">
     <mat-card-title-group>
-        <img mat-card-image src="{{ user.imgurl }}" />
+        <img mat-card-image src="{{ user.imgurl === undefined || user.imgurl === '' ? 
+            'https://ssl.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png' : 
+            user.imgurl }}" />
         <mat-card-title>
             <a routerLink="/menu/user/{{ user.id }}" routerLinkActive="active">
                 <span>{{ user.firstname }} {{ user.lastname }}</span>
