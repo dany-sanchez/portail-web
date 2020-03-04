@@ -1,12 +1,10 @@
 @media (min-width: 768px) {
-  :host(.wide) mat-card,
-  :host(.wide) mat-list-item {
+  :host(.wide) mat-card {
     width: 600px;
   }
 }
 
-mat-card,
-mat-list-item {
+mat-card {
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
   margin: 10px;
@@ -16,13 +14,6 @@ mat-list-item {
 mat-card:hover {
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14),
     0 9px 46px 8px rgba(0, 0, 0, 0.12);
-}
-
-mat-list-item {
-  height: 22px;
-  padding: 0;
-  margin-left: -12px;
-  font-size: 14px;
 }
 
 mat-card-title {
@@ -38,11 +29,7 @@ mat-card-title span {
 mat-card-subtitle.contact-info {
   display: flex;
   align-items: center;
-  height: 20px;
-}
-
-mat-card-title-group {
-  margin-bottom: 20px;
+  height: 2rem;
 }
 
 .contact-info a:hover {
@@ -50,20 +37,15 @@ mat-card-title-group {
 }
 
 .buttons-info {
-  float: right;
-  margin-top: -50px;
-}
-
-@media (max-width: 412px) {
-  .buttons-info {
-    margin-top: -34px;
-  }
+  display: flex;
+  justify-content: flex-end;
 }
 
 .buttons-info [mat-button] {
   min-width: 0px;
   padding: 2px;
   height: 40px;
+  margin-left: 0.5rem;
 }
 
 mat-icon {
@@ -78,16 +60,6 @@ a {
 
 mat-card-actions button[mat-raised-button] {
   margin: 5px;
-}
-
-.hl {
-  background-color: orange;
-  color: white;
-}
-
-.skills {
-  padding: 10px;
-  background-color: #fafafa;
 }
 
 a.truncate {
@@ -117,19 +89,7 @@ a.truncate {
 img {
   flex: 1;
   border-radius: 50%;
-  margin-right: 18px;
+  margin: 0.5rem;
   width: 0;
   height: auto;
-}
-
-@media (max-width: 412px) {
-  img {
-    margin-right: 3px;
-  }
-}
-
-@media (max-width: 600px) {
-  img {
-    margin-right: 5px;
-  }
 }

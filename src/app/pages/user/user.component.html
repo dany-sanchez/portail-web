@@ -1,10 +1,10 @@
 <mat-card class="mat-whiteframe-2dp">
     <mat-card-title-group>
-        <img mat-card-image src="{{ user.imgurl === undefined || user.imgurl === '' ? 
-            'https://ssl.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png' : 
+        <img mat-card-image src="{{ user.imgurl === undefined || user.imgurl === '' ?
+            'https://ssl.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png' :
             user.imgurl }}" />
         <mat-card-title>
-            <a routerLink="/menu/user/{{ user.id }}" routerLinkActive="active">
+            <a [routerLink]="['/menu/user', user.id]" routerLinkActive="active">
                 <span>{{ user.firstname }} {{ user.lastname }}</span>
             </a>
         </mat-card-title>
@@ -17,7 +17,9 @@
     </mat-card-title-group>
     <mat-card-content>
         <div class="buttons-info">
-            <!-- <a mat-button title="Edit" href="#/edit/1"> <mat-icon>create</mat-icon> </a> -->
+            <a mat-button title="Edit">
+                <mat-icon>create</mat-icon>
+            </a>
             <a mat-button title="Delete">
                 <mat-icon>delete</mat-icon>
             </a>
