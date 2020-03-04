@@ -1,7 +1,7 @@
 <mat-card class="mat-whiteframe-2dp">
     <mat-card-title-group>
         <mat-card-title>
-            <a routerLink="/menu/news/{{ actualite.id }}" routerLinkActive="active">
+            <a [routerLink]="['/menu/news', actualite.id]" routerLinkActive="active">
                 <span>{{ actualite.titre }}</span>
             </a>
         </mat-card-title>
