@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Créer un article</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Titre</mat-label>
+    <input matInput [(ngModel)]="titre">
+  </mat-form-field>
+  <ckeditor [editor]="Editor" [(ngModel)]="contenu"></ckeditor>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button (click)= "createActualites()" cdkFocusInitial>Créer</button>
+</div>

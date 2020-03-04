@@ -1,6 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ActualiteService } from 'src/app/service/actualite.service';
 import { Actualite } from 'src/app/model/actualite';
+
+export interface DialogData {
+  contenu: string;
+  titre: string;
+}
+
 
 @Component({
   selector: 'app-actualites',
@@ -9,17 +17,61 @@ import { Actualite } from 'src/app/model/actualite';
 })
 export class ActualitesComponent implements OnInit {
   actualites: Actualite[];
+  animal: string;
 
-  constructor(private actualiteService: ActualiteService) { }
 
-    getActualites(): void {
-      this.actualiteService.getActualites().subscribe(actualites => {
-        this.actualites = actualites;
-      });
-    }
+  constructor(public dialog: MatDialog, public actualiteService: ActualiteService) {
+
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ActualitesDialogComponent, {
+      width: '1500px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+
+  getActualites(): void {
+    this.actualiteService.getActualites().subscribe(actualites => {
+      this.actualites = actualites;
+    });
+  }
 
   ngOnInit() {
     this.getActualites();
+  }
+
+}
+
+
+@Component({
+  selector: 'actualites-dialog',
+  templateUrl: './actualites-dialog.component.html',
+  styleUrls: ['./actualites.component.scss']
+
+})
+export class ActualitesDialogComponent {
+  titre: string;
+  contenu: string;
+  public Editor = ClassicEditor;
+  constructor(public dialogRef: MatDialogRef<ActualitesDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    public actualiteService: ActualiteService) {
+    this.titre = ""
+    this.contenu = ""
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  createActualites(): void {
+    this.actualiteService.createActualite(this.titre, this.contenu)
+    this.dialogRef.close();
   }
 
 }
