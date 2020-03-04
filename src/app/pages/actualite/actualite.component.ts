@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Actualite } from 'src/app/model/actualite';
+import { ActualiteService } from 'src/app/service/actualite.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-actualite',
@@ -9,9 +11,20 @@ import { Actualite } from 'src/app/model/actualite';
 export class ActualiteComponent implements OnInit {
   @Input() actualite: Actualite;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private service: ActualiteService
+  ) {}
 
-  ngOnInit() {
+  getActualite(id: string): void {
+    this.service.getActualites().subscribe(actualites => {
+      this.actualite = actualites.filter(actualite => actualite.id === id).shift();
+    });
   }
 
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    this.getActualite(id);
+  }
 }

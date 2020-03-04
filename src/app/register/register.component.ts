@@ -9,24 +9,28 @@ import { AuthService } from '../../app/auth/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
   message: string;
   profileForm = this.fb.group({
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    password: ['', Validators.required]
   });
 
-  constructor(private authService: AuthService, private fb: FormBuilder, public router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    public router: Router
+  ) {}
 
-
-  register(){
-    this.authService.register(this.profileForm.value.email, this.profileForm.value.password, this.profileForm.value.firstname, this.profileForm.value.lastname)
+  register() {
+    this.authService.register(
+      this.profileForm.value.email,
+      this.profileForm.value.password,
+      this.profileForm.value.firstname,
+      this.profileForm.value.lastname
+    );
   }
 
-
-  ngOnInit() { }
-
-
+  ngOnInit() {}
 }

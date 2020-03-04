@@ -41,12 +41,12 @@ export class AuthService {
       this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(userData => {
         this.afs.collection('users').doc(userData.user.uid).set({
-          firstname: firstname,
-          lastname: lastname
-        })
+          firstname,
+          lastname
+        });
         this.router.navigateByUrl('/login');
       },
-      err => reject(err))
+      err => reject(err));
     });
   }
 
