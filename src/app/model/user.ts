@@ -5,4 +5,6 @@ export interface User {
     email: string;
     role: string;
     imgurl: string;
+    team: string;
+    phone: string;
 }
