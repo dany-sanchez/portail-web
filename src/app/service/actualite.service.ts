@@ -23,12 +23,12 @@ export class ActualiteService {
 
   createActualite(titre: string, contenu: string) {
     this.afs.collection('actualites').doc(this.afs.createId()).set({
-      titre: titre,
-      contenu: contenu,
+      titre,
+      contenu,
       date : new Date(Date.now())
-    }).then(function () {
-      console.log("Document successfully written!");
-    })
+    }).then(() => {
+      console.log('Document successfully written!');
+    });
 
   }
 

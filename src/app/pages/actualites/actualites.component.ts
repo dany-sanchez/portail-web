@@ -49,7 +49,7 @@ export class ActualitesComponent implements OnInit {
 
 
 @Component({
-  selector: 'actualites-dialog',
+  selector: 'app-actualites-dialog',
   templateUrl: './actualites-dialog.component.html',
   styleUrls: ['./actualites.component.scss']
 
@@ -59,10 +59,10 @@ export class ActualitesDialogComponent {
   contenu: string;
   public Editor = ClassicEditor;
   constructor(public dialogRef: MatDialogRef<ActualitesDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    public actualiteService: ActualiteService) {
-    this.titre = ""
-    this.contenu = ""
+              @Inject(MAT_DIALOG_DATA) public data: DialogData,
+              public actualiteService: ActualiteService) {
+    this.titre = '';
+    this.contenu = '';
   }
 
   onNoClick(): void {
@@ -70,7 +70,7 @@ export class ActualitesDialogComponent {
   }
 
   createActualites(): void {
-    this.actualiteService.createActualite(this.titre, this.contenu)
+    this.actualiteService.createActualite(this.titre, this.contenu);
     this.dialogRef.close();
   }
 
