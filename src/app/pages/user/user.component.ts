@@ -4,6 +4,7 @@ import { UserService } from 'src/app/service/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+import { RoleService } from 'src/app/service/role.service';
 
 @Component({
   selector: 'app-user',
@@ -16,6 +17,7 @@ export class UserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: UserService,
+    private roleService: RoleService,
     public dialog: MatDialog
   ) {}
 
@@ -42,6 +44,10 @@ export class UserComponent implements OnInit {
         this.service.updateUser(this.user);
       }
     });
+  }
+
+  getRoleViewValue(): string {
+    return this.roleService.getAllRoles().filter((role) => role.value === this.user.role).shift().viewValue;
   }
 
   ngOnInit() {

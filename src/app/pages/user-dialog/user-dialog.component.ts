@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { User } from 'src/app/model/user';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { UserDialogData } from 'src/app/model/user-dialog-data';
+import { RoleService } from 'src/app/service/role.service';
 
 @Component({
   selector: 'app-user-dialog',
@@ -12,11 +13,13 @@ import { UserDialogData } from 'src/app/model/user-dialog-data';
 export class UserDialogComponent implements OnInit {
   user: User;
   profileForm: FormGroup;
+  roles: object[];
 
   constructor(
     public dialogRef: MatDialogRef<UserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UserDialogData,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private roleService: RoleService
   ) {
     this.user = data.user;
     this.profileForm = this.fb.group({
@@ -28,6 +31,7 @@ export class UserDialogComponent implements OnInit {
       team: [this.user.team],
       phone: [this.user.phone],
     });
+    this.roles = this.roleService.getAllRoles();
   }
 
   onCancelClick(): void {

@@ -14,8 +14,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
 import {MatDialogModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -77,7 +78,8 @@ import { UserDialogComponent } from './pages/user-dialog/user-dialog.component';
     AngularFireAuthModule,
     MatDialogModule,
     CKEditorModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
   ],
   entryComponents: [ActualitesDialogComponent, UserDialogComponent],
   bootstrap: [AppComponent]
