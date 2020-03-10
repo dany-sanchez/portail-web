@@ -14,12 +14,14 @@ export class ActualiteComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: ActualiteService
-  ) {}
+  ) { }
 
   getActualite(id: string): void {
-    this.service.getActualites().subscribe(actualites => {
-      this.actualite = actualites.filter(actualite => actualite.id === id).shift();
-    });
+    if (id !== null) {
+      this.service.getActualites().subscribe(actualites => {
+        this.actualite = actualites.filter(actualite => actualite.id === id).shift();
+      });
+    }
   }
 
   ngOnInit() {

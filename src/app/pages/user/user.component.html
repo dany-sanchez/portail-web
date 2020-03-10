@@ -1,4 +1,4 @@
-<mat-card class="mat-whiteframe-2dp">
+<mat-card class="mat-whiteframe-2dp" *ngIf="user">
     <mat-card-title-group>
         <img mat-card-image src="{{ user.imgurl === undefined || user.imgurl === '' ?
             'https://ssl.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png' :

@@ -1,4 +1,4 @@
-<mat-card class="mat-whiteframe-2dp">
+<mat-card class="mat-whiteframe-2dp" *ngIf="actualite">
     <mat-card-title-group>
         <mat-card-title>
             <a [routerLink]="['/menu/news', actualite.id]" routerLinkActive="active">
