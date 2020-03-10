@@ -22,10 +22,10 @@
     <mat-card-content>
         <mat-card-subtitle class="contact-info">
           <mat-icon>people</mat-icon>
-          Équipe {{ user.team }}
+          {{ user.team }}
         </mat-card-subtitle>
         <div class="buttons-info">
-            <a mat-button title="Edit">
+            <a mat-button title="Edit" (click)="openDialog()">
                 <mat-icon>create</mat-icon>
             </a>
         </div>

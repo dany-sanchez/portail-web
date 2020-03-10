@@ -36,6 +36,7 @@ import { ActualitesComponent, ActualitesDialogComponent } from './pages/actualit
 import { NewActualiteComponent } from './pages/new-actualite/new-actualite.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule } from '@angular/forms';
+import { UserDialogComponent } from './pages/user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { FormsModule } from '@angular/forms';
     ActualitesComponent,
     ActualitesDialogComponent,
     NewActualiteComponent,
+    UserDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,7 @@ import { FormsModule } from '@angular/forms';
     CKEditorModule,
     FormsModule
   ],
-  entryComponents: [ActualitesDialogComponent],
+  entryComponents: [ActualitesDialogComponent, UserDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,76 @@
+<h1 mat-dialog-title>
+  Modification de {{ user.firstname }} {{ user.lastname }}
+</h1>
+<form [formGroup]="profileForm">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Prénom</mat-label>
+      <input
+        matInput
+        formControlName="firstname"
+        placeholder="{{ user.firstname }}"
+        value="{{ user.firstname }}"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input
+        matInput
+        formControlName="lastname"
+        placeholder="{{ user.lastname }}"
+        value="{{ user.lastname }}"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mail</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="{{ user.email }}"
+        value="{{ user.email }}"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Rôle</mat-label>
+      <input
+        matInput
+        formControlName="role"
+        placeholder="{{ user.role }}"
+        value="{{ user.role }}"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>URL de l'image</mat-label>
+      <input
+        matInput
+        formControlName="imgurl"
+        placeholder="{{ user.imgurl }}"
+        value="{{ user.imgurl }}"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Équipe</mat-label>
+      <input
+        matInput
+        formControlName="team"
+        placeholder="{{ user.team }}"
+        value="{{ user.team }}"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Téléphone</mat-label>
+      <input
+        matInput
+        formControlName="phone"
+        placeholder="{{ user.phone }}"
+        value="{{ user.phone }}"
+      />
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [disabled]="profileForm.invalid" (click)="onSaveClick()">
+      Enregistrer
+    </button>
+    <button mat-button (click)="onCancelClick()">Annuler</button>
+  </div>
+</form>

@@ -20,4 +20,8 @@ export class UserService {
       });
     }));
   }
+
+  public updateUser(user: User): void {
+    this.afs.collection<User>('users').doc(user.id).set(user, {merge: true});
+ }
 }
