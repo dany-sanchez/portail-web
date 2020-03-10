@@ -19,7 +19,7 @@ export class UserDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<UserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UserDialogData,
     private fb: FormBuilder,
-    private roleService: RoleService
+    private roleService: RoleService,
   ) {
     this.user = data.user;
     this.profileForm = this.fb.group({
@@ -40,6 +40,15 @@ export class UserDialogComponent implements OnInit {
 
   onSaveClick(): void {
     this.dialogRef.close(this.profileForm.value);
+  }
+
+  isRole(role: string): boolean {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    return userData !== null && userData.role === role;
+  }
+
+  get isAdmin(): boolean {
+    return this.isRole('admin');
   }
 
   ngOnInit() {}

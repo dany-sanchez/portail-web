@@ -19,10 +19,7 @@ export class ActualitesComponent implements OnInit {
   actualites: Actualite[];
   animal: string;
 
-
-  constructor(public dialog: MatDialog, public actualiteService: ActualiteService) {
-
-  }
+  constructor(public dialog: MatDialog, public actualiteService: ActualiteService) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ActualitesDialogComponent, {
@@ -37,12 +34,21 @@ export class ActualitesComponent implements OnInit {
 
   getActualites(): void {
     this.actualiteService.getActualites().subscribe(actualites => {
-      this.actualites = actualites;
+      this.actualites = actualites.sort((a, b) => b.date.seconds - a.date.seconds);
     });
   }
 
   ngOnInit() {
     this.getActualites();
+  }
+
+  isRole(role: string): boolean {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    return userData !== null && userData.role === role;
+  }
+
+  get isAdmin(): boolean {
+    return this.isRole('admin');
   }
 
 }

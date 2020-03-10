@@ -1,6 +1,6 @@
 <section>
     <app-actualite *ngFor="let actualite of actualites" [actualite]="actualite"></app-actualite>
-    <button color="primary" ripple class="float" mat-fab (click)="openDialog()">
+    <button color="primary" ripple class="float" mat-fab (click)="openDialog()" *ngIf="isAdmin">
         <mat-icon>add</mat-icon>
     </button>
 </section>

@@ -7,7 +7,7 @@ exports.triggerUserCreated = functions.auth.user().onCreate((user) => {
   return admin
     .firestore()
     .collection('/users/').doc(user.uid).set({
-      firstname: '',
+      firstname: "",
       lastname: '',
       email: user.email,
       role: 'client',

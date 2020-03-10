@@ -18,8 +18,8 @@ export class UserComponent implements OnInit {
     private route: ActivatedRoute,
     private service: UserService,
     private roleService: RoleService,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+  ) {  }
 
   getUser(id: string): void {
     if (id !== null) {
@@ -55,4 +55,23 @@ export class UserComponent implements OnInit {
 
     this.getUser(id);
   }
+
+  isRole(role: string): boolean {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    return userData !== null && userData.role === role;
+  }
+
+  isSelf(): boolean {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    return userData !== null && userData.id === this.user.id;
+  }
+
+  get isAdmin(): boolean {
+    return this.isRole('admin');
+  }
+
+  get isEmployeeAndSelf(): boolean {
+    return this.isSelf() && this.isRole('employee');
+  }
+
 }
