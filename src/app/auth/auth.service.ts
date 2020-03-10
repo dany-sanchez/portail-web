@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
-import { tap, delay } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
-import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
+import { User as UserData } from '../model/user';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +13,28 @@ import { User } from 'firebase';
 
 export class AuthService {
   user: User;
+  userData: UserData;
   redirectUrl: string;
 
-  constructor(public afAuth: AngularFireAuth, public router: Router) {
+  constructor(private afs: AngularFirestore, public afAuth: AngularFireAuth, public router: Router) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
         localStorage.setItem('user', JSON.stringify(this.user));
+        this.afs
+        .collection('users')
+        .doc(user.uid)
+        .snapshotChanges().subscribe(res => {
+          if (res) {
+            const userData = res.payload.data() as UserData;
+            localStorage.setItem('userData', JSON.stringify(userData));
+          } else {
+            localStorage.setItem('userData', null);
+          }
+        });
       } else {
         localStorage.setItem('user', null);
+        localStorage.setItem('userData', null);
       }
     });
   }
@@ -35,8 +47,18 @@ export class AuthService {
     }
   }
 
-  async register(email: string, password: string) {
-    await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+  async register(email: string, password: string, firstname: string, lastname: string) {
+    await new Promise((resolve, reject) => {
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(userData => {
+        this.afs.collection('users').doc(userData.user.uid).set({
+          firstname,
+          lastname
+        });
+        this.router.navigateByUrl('/login');
+      },
+      err => reject(err));
+    });
   }
 
   async sendPasswordResetEmail(passwordResetEmail: string) {

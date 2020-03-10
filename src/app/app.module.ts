@@ -14,6 +14,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -29,6 +31,13 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { environment } from '../environments/environment';
 import { UsersComponent } from './pages/users/users.component';
+import { RegisterComponent } from './register/register.component';
+import { ActualiteComponent } from './pages/actualite/actualite.component';
+import { ActualitesComponent, ActualitesDialogComponent } from './pages/actualites/actualites.component';
+import { NewActualiteComponent } from './pages/new-actualite/new-actualite.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FormsModule } from '@angular/forms';
+import { UserDialogComponent } from './pages/user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +49,12 @@ import { UsersComponent } from './pages/users/users.component';
     PageNotFoundComponent,
     DashboardComponent,
     UsersComponent,
+    RegisterComponent,
+    ActualiteComponent,
+    ActualitesComponent,
+    ActualitesDialogComponent,
+    NewActualiteComponent,
+    UserDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +76,12 @@ import { UsersComponent } from './pages/users/users.component';
     AngularFireModule.initializeApp(environment.firebase, 'portail-weeb'),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    MatDialogModule,
+    CKEditorModule,
+    FormsModule,
+    MatSelectModule
   ],
-  providers: [],
+  entryComponents: [ActualitesDialogComponent, UserDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

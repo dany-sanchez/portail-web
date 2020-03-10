@@ -1,0 +1,17 @@
+section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+app-actualite {
+  width: 600px;
+  max-width: 100%;
+}
+
+.float {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}

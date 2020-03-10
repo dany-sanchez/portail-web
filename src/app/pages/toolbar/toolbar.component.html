@@ -6,9 +6,9 @@
   <span>Portail</span>
   <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
     *ngIf="isHandset$ | async">
-
   </button>
-  <button (click)="signOut()" mat-button routerLinkActive="mat-accent">
+  <span class="example-spacer"></span>
+  <button class="example-icon" (click)="signOut()" mat-button routerLinkActive="mat-accent">
     <mat-icon>power_settings_new</mat-icon>
   </button>
 
