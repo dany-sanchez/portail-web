@@ -9,8 +9,22 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <!-- <app-dashboard></app-dashboard> -->
-    
-<router-outlet></router-outlet>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Portail</span>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+      </button>
+      <span class="example-spacer"></span>
+      <button class="example-icon" (click)="signOut()" mat-button routerLinkActive="mat-accent">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
