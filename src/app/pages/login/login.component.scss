@@ -9,10 +9,10 @@
   height: 100%;
 }
 
-
-
 .login-form > mat-card-actions {
   margin-bottom: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .input-full-width,
