@@ -17,7 +17,6 @@ export interface DialogData {
 })
 export class ActualitesComponent implements OnInit {
   actualites: Actualite[];
-  animal: string;
 
   constructor(public dialog: MatDialog, public actualiteService: ActualiteService) {}
 

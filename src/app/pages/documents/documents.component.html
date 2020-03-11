@@ -1,0 +1,63 @@
+<section>
+  <h1>Liste des documents</h1>
+
+  <mat-form-field>
+    <mat-label>Filtrer</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. document.txt"
+    />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="updated">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Dernière modification
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.updated.seconds * 1000 | date: "dd-MM-yyyy à HH:mm:ss" }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Actions
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <a mat-button title="Télécharger" href="{{ row.downloadUrl }}">
+            <mat-icon>get_app</mat-icon>
+          </a>
+          <a
+            mat-button
+            title="Supprimer"
+            (click)="deleteDocument(row)"
+            *ngIf="isAdminOrEmployee"
+          >
+            <mat-icon>delete</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+  <button
+    color="primary"
+    ripple
+    class="float"
+    mat-fab
+    (click)="openDialog()"
+    *ngIf="isAdminOrEmployee"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</section>

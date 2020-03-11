@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>
+  Ajouter des documents
+</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <!-- <button
+      mat-icon-button
+      color="primary"
+      (click)="selectDocument()"
+    >
+      <mat-icon class="button-icon">attach_file</mat-icon>
+    </button> -->
+    <mat-label>Choisir un document</mat-label>
+    <mat-chip-list #chipList>
+      <mat-chip
+        *ngFor="let file of files"
+        (removed)="remove(file)"
+      >
+        {{ file.name }}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input
+        matInput
+        (click)="selectDocument()"
+        (focus)="onFocus($event)"
+      />
+      <input
+        id="documents"
+        type="file"
+        multiple
+        hidden
+        (change)="onFilesChange($event)"
+      />
+    </mat-chip-list>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [disabled]="files === undefined || files.length === 0" (click)="onSaveClick()">
+    Enregistrer
+  </button>
+  <button mat-button (click)="onCancelClick()">Annuler</button>
+</div>

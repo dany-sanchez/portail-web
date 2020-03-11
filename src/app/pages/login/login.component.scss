@@ -4,7 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('../../../assets/login.jpg');
+  background-size: cover;
+  height: 100%;
 }
+
+
 
 .login-form > mat-card-actions {
   margin-bottom: 0;
