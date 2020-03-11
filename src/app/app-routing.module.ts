@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 import { AuthGuard } from './auth/auth.guard';
 import { RegisterComponent } from './register/register.component';
+import { DocumentsComponent } from './pages/documents/documents.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'news',
         component: ActualitesComponent
+      },
+      {
+        path: 'documents',
+        component: DocumentsComponent
       },
       { path: 'user/:id', component: UserComponent },
       { path: 'news/:id', component: ActualiteComponent },

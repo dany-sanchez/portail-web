@@ -1,0 +1,28 @@
+section {
+  margin-right: 7rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.buttons-info {
+  display: flex;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
