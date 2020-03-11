@@ -1,6 +1,12 @@
-# Project
+# Install
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
+`git clone https://github.com/dany-sanchez/portail-weeb.git`
+
+`cd portail-weeb`
+
+`npm install -g @angular/cli`
+
+`npm install`
 
 ## Development server
 
